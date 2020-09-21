@@ -1,38 +1,22 @@
-@import './utils.less';
+@import 'utils.less';
 .menu {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-
-  .language-toggle {
-    text-align: center;
-    margin-top: 1em;
-    font-size: .8rem;
-    .active {
-      border-bottom: 1px solid;
-      padding-bottom: 1px;
-      color: @color-secondary;
-    }
+  .btns-group-vertical{
+    padding: 4rem;
   }
-
-  .btns-group,
-  .btns-group-vertical {
-    margin: 1em auto 2em;
-    width: 80%;
-
-    .btn-secondary {
-      .font-s1;
-      padding-top: .5em;
-      padding-bottom: .5em;
-    }
-  }
-
   .btns-group-vertical .btn-secondary {
     .force-wrap;
-    padding-right: 2.5em;
-    text-align: left;
+    //padding-right: 2.5em;
+    text-align: center;
     text-indent: 0;
     white-space: normal; // Resets wrapping
     width: 100%;
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: hsl(215, 13%, 70%);
+    height: 5rem;
+
 
     & + .btn-secondary {
       margin-top: .5rem;
@@ -64,14 +48,19 @@
       overflow-x:hidden;
     }
     .link-list-new {
-      text-align: left;
-      color: @color-secondary;
+      cursor: pointer;
+      width: 100%;
+      margin-top: .5rem;
+      margin-left: 1rem;
+      border-radius: 1rem;
+      height: 5rem;
+      text-align: center;
       cursor: pointer;
     }
 
     .count-list {
       transition: all 200ms ease-in;
-      background: rgba(255,255,255,.1);
+      background: rgba(53, 174, 255, 0.1);
       border-radius: 1em;
       float: right;
       font-size: .7rem;
@@ -98,13 +87,14 @@
     }
 
     .list-todo {
-      color: rgba(255,255,255,.4);
+      color: @color-ancillary;
 
       &:hover,
       &:active,
       &.active {
-        color: @color-empty;
-        .count-list { background: @color-primary; }
+        color: #5385c1;
+        background-color: #576bd7;
+        .count-list { background: @color-primary;color: white }
       }
 
       .cordova &:hover {

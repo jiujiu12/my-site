@@ -1,14 +1,5 @@
 <template>
-  <div id="caculate" class="subpage">
-    <header id="header">
-      <div class="inner">
-        <a @click="$router.go(-1)"> < 返回 </a>
-      </div>
-    </header>
-
-    <!-- Three -->
-    <section id="three" class="wrapper">
-      <div class="inner content">
+      <div id="caculate three" class="inner content wrapper">
         <header class="align-center">
           <h2>在线计算器</h2>
           <p>实现简单的计算</p>
@@ -16,9 +7,9 @@
 
         <div class="box"><br />
           <!--输入框-->
-          <div class="cal">
+          <div class="cal ">
             <input type="text" disabled="disabled" name="" id="print" class="print" v-model="show"  /><br /><br />
-            <div class="">
+            <div class=" flex flex-4">
               <button
                 class="btn"
                 v-for="(item,index) in values"
@@ -32,29 +23,20 @@
 
         </div>
       </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer">
-      <div class="inner">
-        <div class="flex">
-          <div class="copyright">
-            &copy; CopyRight: 京 ICP 证 110745 号.
-          </div>
-        </div>
-      </div>
-    </footer>
-
-  </div>
 </template>
 
 <script>
+    import MyNav from '../common/MyNav';
     export default {
         name: 'caculate',
+        components: {
+            MyNav
+        },
         data() {
             return {
                 show: '',
                 disable: true,
+                hasHistory: false,
                 values:
                   [
                     '<-', 'CE', '√', 'T',
@@ -66,6 +48,13 @@
                   ]
             };
         },
+      mounted() {
+          if (window.history < 0) {
+            this.hasHistory = false;
+          } else {
+            this.hasHistory = true;
+          }
+      },
         methods: {
           cone(item) {
               switch (item) {
@@ -108,7 +97,6 @@
       }
     };
 </script>
-<style>@import '../../common/style/css/main.css';</style>
 <style lang="less" scoped>
   /*计算器边框*/
   #caculate{
@@ -134,6 +122,7 @@
       transform: translate(-50%, -50%);
       .print{
         color: white;
+        border: white solid 3px;
       }
       .btn{
         width: 25%;

@@ -1,19 +1,26 @@
-@import './utils.less';
+@import 'utils.less';
 
 .list-items .list-item {
   .font-s2;
+  border-radius: 2rem;
 
   // Layout of list-item children
   display: flex;
   flex-wrap: wrap;
-  height: 3rem;
+  height: 6rem;
   width: 100%;
 
   .checkbox {
     flex: 0, 0, 44px;
     cursor: pointer;
   }
-  input[type="text"] { flex: 1; }
+  input[type="text"] {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border: solid 1px transparent;
+  }
   .delete-item { flex: 0, 0, 3rem; }
 
 
@@ -27,7 +34,7 @@
 
   .delete-item {
     color: @color-medium-rare;
-    line-height: 3rem;
+    line-height: 7rem;
     text-align: center;
 
     &:hover { color: @color-primary; }
@@ -43,7 +50,7 @@
   &.checked {
     input[type="text"] {
       color: @color-medium-rare;
-      text-decoration: line-through;
+      text-decoration: line-through solid green;
     }
 
     .delete-item { display: inline-block; }

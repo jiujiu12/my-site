@@ -12,7 +12,8 @@ export const getTodo = ({ // 定义一个名字为getTodo的事件
      函数返回值后，在调用store.js里面的EDITTODE方法，并且把值传给它。
      */
     getTodoList().then((res) => {
-      commit('EDITTODE', res.data.todos);
+      console.log(res);
+      commit('EDITTODE', res.data);
       resolve();
     });
   });

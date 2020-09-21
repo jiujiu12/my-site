@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import UserHome from './components/UserHome';
+  import UserHome from './pages/UserHome';
 export default {
   name: 'app',
   components: {UserHome},

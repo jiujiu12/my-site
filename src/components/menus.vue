@@ -1,22 +1,29 @@
 <template>
-  <!--绑定点击事件goList),并且判断当todoId 时候 item.id时,文字高亮度-->
   <div class="list-todos">
-    <!-- 绑定class，当items循环中的id等于我们设置的选中todoId时候,就会加上active这个calss,这样样式就会发生变化。-->
-    <a @click="goList(item.id)" class="list-todo list activeListClass" :class="{'active': item.id === todoId}" v-for="(item,index) in todoList" :key="index">
-      <!-- 把以前的item换成todoList -->
-      <span class="icon-lock" v-if="item.locked"></span>
-      <span class="count-list" v-if="item.count > 0">{{item.count}}</span>
-      {{item.title}}
-    </a>
-    <a class=" link-list-new" @click="addTodoList">
+    <!--循环展示所有代办清单-->
+    <div class="btns-group-vertical">
+      <button
+        class="list-todo list activeListClass btn-secondary"
+        :class="{'active': item.id === todoId}"
+        v-for="(item,index) in todoList"
+        :key="index"
+        @click="goList(item.id)"
+      >
+
+        <span class="count-list" v-if="item.count > 0" :title="item.count+'个未完成'">{{item.count}}</span>
+        {{item.title}}
+      </button>
+      <!--新增待办清单-->
+      <button class="link-list-new" @click="addTodoList">
       <span class="icon-plus">
       </span>
-      新增
-    </a>
+        新增待办清单
+      </button>
+    </div>
   </div>
 </template>
 <script>
-import { addTodo } from '../api/api';  // 引入我们 封装好的两个接口函数。
+import { addTodo } from '../api/api';
 export default {
   data() {
     return {
@@ -27,17 +34,7 @@ export default {
   },
   watch: {
     'todoId'(id) {
-      this.$router.push({ name: 'todo', params: { id: id } });
-    }
-  },
-  computed: {
-    todoList() {
-      const number = this.$store.getters.getTodoList.length;
-      if (this.$store.getters.getTodoList.length < this.todoNum) {
-         this.goList(this.$store.getters.getTodoList[0].id);
-      }
-      this.todoNum = number;
-      return this.$store.getters.getTodoList; // 返回vuex getters.js 定义的getTodoList数据
+      this.$router.push({ name: 'operate', params: { 'id': id } });
     }
   },
   created() { // 调用请求菜单列表数据的接口
@@ -52,13 +49,24 @@ export default {
       });
     });
   },
+  computed: {
+    todoList() {
+      console.log('list' + this.$store.getters.getTodoList);
+      const number = this.$store.getters.getTodoList.length;
+      if (this.$store.getters.getTodoList.length < this.todoNum) {
+        this.goList(this.$store.getters.getTodoList[0].id);
+      }
+      this.todoNum = number;
+      return this.$store.getters.getTodoList; // 返回vuex getters.js 定义的getTodoList数据
+    }
+  },
   methods: {
     goList(id) { // 点击菜单时候,替换选中id
       this.todoId = id;
     },
     addTodoList() { // 点击新增按钮时候
       // 调用vuex actions.js 里面的 getTodo函数
-      addTodo({}).then(data => {
+      addTodo({title: 'newList'}).then(data => {
         this.$store.dispatch('getTodo').then(() => {
           this.$nextTick(() => {
             setTimeout(() => {
@@ -73,6 +81,6 @@ export default {
 </script>
 
 <style lang="less">
-/*@import '../common/style/menu.less';*/
+@import '../common/style/less/menu.less';
 </style>
 

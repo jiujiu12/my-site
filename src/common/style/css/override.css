@@ -1,0 +1,26 @@
+
+h1{
+  font-family: 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', ‘Source Han Serif’, source-han-serif-sc, serif !important;
+}
+/* WebKit browsers */
+input::-webkit-input-placeholder {
+  color: #C0C0C0;
+  font-size: 14px;
+}
+/* Mozilla Firefox 4 to 18 */
+input:-moz-placeholder {
+  color: #C0C0C0;
+  opacity: 1;
+  font-size: 14px;
+}
+/* Mozilla Firefox 19+ */
+input::-moz-placeholder {
+  color: #C0C0C0;
+  opacity: 1;
+  font-size: 14px;
+}
+/* Internet Explorer 10+ */
+input:-ms-input-placeholder {
+  color: #C0C0C0;
+  font-size: 14px;
+}

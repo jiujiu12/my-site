@@ -23,11 +23,26 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
+    port: 8081,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      // 这里配置 '/api' 就等价于 target , 你在链接里访问 /api === http://localhost:54321
+      '/api': {
+        target: 'http://localhost:8080', // 真是服务器的接口地址 // http://localhost:54321/json.data.json,
+        // secure: true, // 如果是 https ,需要开启这个选项
+        changeOrigin: true, // 是否是跨域请求?肯定是啊,不跨域就没有必要配置这个proxyTable了.
+        pathRewirte: {
+          // 这里是追加链接,比如真是接口里包含了 /api,就需要这样配置.
+
+          '^/api': '/',
+          // 等价于
+          // step 1  /api = http://localhost:54321/
+          // step 2 /^api = /api + api == http://localhost:54321/api
+        }
+      }
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

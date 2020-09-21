@@ -2,13 +2,21 @@
 @import 'font-awesome.min.css';
 @import 'Raleway.css';
 
-
+/* Custom properties/variables  */
+:root {
+  --main-white: #f0f0f0;
+  --main-red: #be3144;
+  --main-blue: #45567d;
+  --main-gray: #303841;
+  --main-font: #5385c1;
+}
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
 		padding: 0;
 		border: 0;
 		font-size: 100%;
 		font: inherit;
+    font-family: 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', ‘Source Han Serif’, source-han-serif-sc, serif;
 		vertical-align: baseline;
 	}
 
@@ -1747,7 +1755,7 @@
 
 	.inner {
 		max-width: 75em;
-		margin: 0 auto;
+		margin: 5% auto 0 auto;
 	}
 
 		@media screen and (max-width: 1280px) {
@@ -1995,7 +2003,7 @@
 		-ms-appearance: none;
 		appearance: none;
 		background: rgba(144, 144, 144, 0.075);
-		border-radius: 0;
+		border-radius: 2rem;
 		border: none;
 		border: solid 1px #dbdbdb;
 		color: inherit;
@@ -2063,6 +2071,7 @@
 	input[type="email"],
 	select {
 		height: 2.75em;
+    margin: 1rem;
 	}
 
 	textarea {
@@ -2078,7 +2087,7 @@
 		display: block;
 		float: left;
 		margin-right: -2em;
-		opacity: 0;
+		opacity: 1;
 		width: 1em;
 		z-index: -1;
 	}
@@ -2172,7 +2181,6 @@
 /* Box */
 
 	.box {
-		border: solid 1px #dbdbdb;
 		margin-bottom: 2em;
 		padding: 1.5em;
 	}
@@ -2284,6 +2292,19 @@
 			.image.main img {
 				width: 100%;
 			}
+      .img-animate{
+        border-radius: 5px;
+        background-color: black;
+      }
+      .img-responsive{
+        transition: all 0.98s ease-in-out 0.5s;
+        background-color: transparent;
+        opacity: 0.8;
+      }
+      .img-responsive:hover{
+        opacity: 0.5;
+        cursor: pointer;
+      }
 
 /* List */
 
@@ -2533,6 +2554,7 @@
 	input[type="button"],
 	button,
 	.button {
+    outline: none;
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
@@ -2706,10 +2728,11 @@
 
 	.subpage {
 		padding-top: 44px;
+    background: #eaecf0;
 	}
 
 		.subpage #header {
-			background: #5385c1;
+			background: var(--main-red);
 			top: 0;
 			height: 44px;
 			line-height: 44px;
@@ -2771,9 +2794,9 @@
 			#header a.navPanelToggle {
 				display: none;
 				text-decoration: none;
-				height: 4em;
-				width: 4em;
-				z-index: 10003;
+				/*height: 4em;*/
+				/*width: 4em;*/
+				/*z-index: 10003;*/
 			}
 
 				#header a.navPanelToggle .fa {
@@ -2848,13 +2871,14 @@
 		position: fixed;
 		right: 0;
 		top: 0;
-		background: #5385c1;
+		background: var(--main-gray);
 		color: #d4e0ef;
 		height: 100%;
 		max-width: 80%;
 		width: 20em;
 		padding: 0.5em 1.25em;
 		z-index: 10003;
+    text-align: left;
 	}
 
 		#navPanel.visible {
@@ -2919,21 +2943,23 @@
 				text-align: center;
 			}
 
-			#navPanel .close:hover {
-				color: inherit;
-			}
+
+      .nav-link:hover{
+        opacity: 0.7;
+      }
 
 /* Banner */
 
 	#banner {
 		padding: 12em 0 10em 0;
-		background-image: url('../../images/banner.jpg');
+		/*background-image: url('../../images/banner.jpg');*/
 		background-size: cover;
+    background-color: var(--main-gray);
 		background-position: top;
 		background-attachment: fixed;
 		background-repeat: no-repeat;
 		text-align: center;
-		border-top: 0.5em solid #5385c1;
+		border-top: 0.5em solid var(--main-red);
 	}
 
 		#banner h1 {
@@ -3058,3 +3084,4 @@
 		}
 
 	}
+@import "override.css";
