@@ -2,45 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f16d3ef-a716-4ba7-9b67-ad4f6b2c65f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/style/css/override.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/style/css/resume.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/MyFooter.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/MyNav.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/NavPanel.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/operate.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/resume/fullPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/images/pic01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/style/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/style/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/style/form.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/style/less/form.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/style/icon.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/style/less/icon.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/style/layouts.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/style/less/layouts.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/style/list-items.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/style/less/list-items.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/style/menu.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/style/less/menu.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/style/nav.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/style/less/nav.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/style/todo.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/style/less/todo.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/style/util/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/style/util/variables.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/style/utils.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/style/less/utils.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/ChildCatalog.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UserHome.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/demo/caculate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/resume/caculate.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/demo/demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/resume/resume.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layouts.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/menus.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/menus.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/todo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/todo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mock/data/todoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mock/data/todoList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vuex/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/vuex/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vuex/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/vuex/getters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vuex/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/vuex/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/operate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/operate.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,12 +135,24 @@
       <workItem from="1600395118078" duration="9889000" />
       <workItem from="1600476478254" duration="2466000" />
       <workItem from="1600565494359" duration="7921000" />
-      <workItem from="1600649738599" duration="2958000" />
+      <workItem from="1600649738599" duration="7595000" />
     </task>
+    <task id="LOCAL-00001" summary="大部分功能完善">
+      <created>1600664724259</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600664724259</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="大部分功能完善" />
+    <option name="LAST_COMMIT_MESSAGE" value="大部分功能完善" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="72" key="#ESLint" timestamp="1597654781082">
@@ -190,10 +167,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="161" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1599729291085" />
+    <state x="376" y="7" key="CommitChangelistDialog2" timestamp="1600664723467">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="376" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1600664723467" />
     <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1598429644371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1598429644371" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1600664798343">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600664798343" />
     <state x="444" y="175" width="648" height="614" key="find.popup" timestamp="1600591010760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -51,21 +51,30 @@ export default {
   },
   computed: {
     todoList() {
-      console.log('list' + this.$store.getters.getTodoList);
       const number = this.$store.getters.getTodoList.length;
       if (this.$store.getters.getTodoList.length < this.todoNum) {
         this.goList(this.$store.getters.getTodoList[0].id);
       }
       this.todoNum = number;
-      return this.$store.getters.getTodoList; // 返回vuex getters.js 定义的getTodoList数据
+      // 过滤掉已经被删除的元素不再展示
+      return this.$store.getters.getTodoList.filter((item) => {
+        return !item.isDelete;
+      });
     }
   },
   methods: {
-    goList(id) { // 点击菜单时候,替换选中id
+    /**
+     * @param id
+     * @desc 点击菜单时候,替换选中id
+     */
+    goList(id) {
       this.todoId = id;
     },
-    addTodoList() { // 点击新增按钮时候
-      // 调用vuex actions.js 里面的 getTodo函数
+    /**
+     * @desc 点击新增按钮时候触发
+     */
+    addTodoList() {
+      // 点击新增，默认title名为newList
       addTodo({title: 'newList'}).then(data => {
         this.$store.dispatch('getTodo').then(() => {
           this.$nextTick(() => {

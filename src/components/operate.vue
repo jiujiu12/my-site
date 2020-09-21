@@ -172,9 +172,9 @@ export default {
     },
     updateTodo() {
       let _this = this;
-      editTodo({
-        todo: this.todo
-      }).then(data => {
+      editTodo(
+        this.todo
+      ).then(data => {
         // _this.init();
         _this.$store.dispatch('getTodo');
       });

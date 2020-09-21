@@ -22,6 +22,7 @@ const addRecord = params => {
 };
 
 const editTodo = params => {
+  console.log(params);
   return axios.post(`/todo/editTodo`, qs.stringify(params)).then(res => res.data);
 };
 const editRecord = params => {
