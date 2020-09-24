@@ -47,7 +47,7 @@ export default {
         fatherId: this.id, subId: this.item.subId, text: this.item.text, isDelete: this.item.isDelete, checked: this.item.checked
       }).then(data => {
         this.init();
-        this.$store.dispatch('getTodo');
+        this.$store.dispatch('getTodoItems');
       });
     }
   }

@@ -6,6 +6,7 @@ import layout from '../components/layout';
 import UserHome from '@/pages/UserHome';
 import resume from '../components/resume/resume';
 import fullPage from '../components/resume/fullPage';
+import login from '../components/login';
 
 Vue.use(Router);
 
@@ -43,6 +44,11 @@ export default new Router({
           component: operate
         }
       ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     }
   ]
 });

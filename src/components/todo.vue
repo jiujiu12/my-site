@@ -1,6 +1,8 @@
 <template>
       <div id="todo"   :class="{'menu-open': menuOpen}">
         <div class="wrapper inner">
+
+          <!--导航条-->
           <nav id="navbar" class="nav goback">
             <ul class="nav-list">
               <li>
@@ -8,29 +10,41 @@
               </li>
             </ul>
           </nav>
+          <!--/导航条-->
 
            <div class="todo box">
-             <!-- 根据menuOpen的值来判断是否使用menu-open样式 -->
              <div class="container contain">
+
+               <!--菜单-->
                <section class="menu">
-                 <menus></menus>
+                 <menus
+                   :param-id = "todoId"
+                   :todo="todo"
+                   @go = "goList"
+                 ></menus>
                </section>
+               <!--/菜单-->
+
                <div class="content-overlay" @click="$store.dispatch('updateMenu')"></div>
-               <!-- 这个是当页面收缩覆盖在内容上面的模糊层，点击后复原,他可以直接调用vuex actions.js里面的updateMenu方法 -->
+
+               <!--详细-->
                <div class="content-container todo-right">
-                 <router-view></router-view>
+                 <router-view :todo = 'todo' @emitTodo = 'onTodo'></router-view>
                </div>
+               <!--/详细-->
 
              </div>
 
           </div>
+          <!--页脚-->
           <footer >
-           <span>&copy; Created by
-            <a href="http://aaamiao.xyz" target="_blank"
-            >Miaomiao </a> 冀ICP备2020021452号
-          </span>
-            <a>了解更多>></a>
+             <span>&copy; Created by
+              <a href="http://aaamiao.xyz" target="_blank"
+              >Miaomiao </a> 冀ICP备2020021452号
+            </span>
+              <a>了解更多>></a>
           </footer>
+          <!--/页脚-->
         </div>
       </div>
 </template>
@@ -41,6 +55,18 @@ import todo from './operate';
 import MyNav from './common/MyNav';
 export default {
   name: 'todo',
+  data() {
+    return {
+      todoId: '',
+      todo: {
+        id: 0,
+        title: '星期一',
+        count: 12,
+        isDelete: false,
+        locked: false
+      }
+    };
+  },
   components: {
     menus,
     todo,
@@ -49,6 +75,24 @@ export default {
   computed: {
     menuOpen() {
       return this.$store.state.menuOpen;
+    }
+  },
+  watch: {
+    'todoId'(id) {
+      this.$router.push({ name: 'operate', params: { 'id': id } });
+    }
+  },
+  methods: {
+    /**
+     * @param item
+     * @desc 点击菜单时候,替换选中id
+     */
+    goList(item) {
+      this.todoId = item.id;
+      this.todo = item;
+    },
+    onTodo(todo) {
+      this.todo = todo;
     }
   }
 };

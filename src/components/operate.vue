@@ -43,10 +43,6 @@
             <span class="icon-unlock" v-else title="可编辑">
             </span>
           </a>
-          <a class="nav-item">
-            <span class="icon-trash" @click="onDelete">
-            </span>
-          </a>
         </div>
       </div>
       <!-- 用户新增代办事项的input模块 -->
@@ -65,7 +61,7 @@
         />
       </div>
     </nav>
-    <!-- 列表主体模块 -->
+
     <div class="content-scrollable list-items">
 
       <ul class="tabs">
@@ -73,6 +69,7 @@
         <li><a title="未完成" :class="{active:isActive === 'active'}" @click="isActive = 'active'">active</a></li>
         <li><a title="已完成" :class="{active:isActive === 'finish'}" @click="isActive = 'finish'">finish</a></li>
       </ul>
+
       <div v-for="(item,index) in counts">
         <item :item="item" :index="index" :id="todo.id" :init="init" :locked="todo.locked"></item>
       </div>
@@ -82,17 +79,11 @@
 <script>
 
 import item from './item';
-import { addRecord, getTodo, editTodo } from '../api/api';
+import { addRecord, getTodoItems, editTodo } from '../api/api';
 export default {
+  props: ['todo'],
   data() {
     return {
-      todo: {
-        id: 0,
-        title: '星期一',
-        count: 12,
-        isDelete: false,
-        locked: false
-      },
       items: [],
       text: '',
       isUpdate: false,
@@ -122,15 +113,14 @@ export default {
   },
   watch: {
     '$route.params.id'() {
-      console.log('change');
       // 监听$route.params.id的变化，如果这个id即代表用户点击了其他的待办项需要重新请求数据。
       this.init();
     }
   },
   created() {
-    console.log('hi');
     // created生命周期，在实例已经创建完成，页面还没渲染时调用init方法。
-    this.init();
+    let pid = this.$route.params.id;
+    this.init(pid);
   },
   mounted() {
   },
@@ -143,20 +133,20 @@ export default {
     }
   },
   methods: {
-    async init() {
+    init() {
       const ID = this.$route.params.id;
-      await getTodo(ID).then(res => {
-        console.log('id : ' + ID);
+      getTodoItems(ID).then(res => {
         let { id, title, count, isDelete, locked, record
         } = res.data;
         this.items = record;
-        this.todo = {
+        let todo = {
           id: id,
           title: title,
           count: count,
           locked: locked,
           isDelete: isDelete
         };
+        this.$emit('emitTodo', todo);
       });
     },
     onAdd() {
@@ -167,7 +157,7 @@ export default {
       addRecord({ fatherId: ID, text: this.text }).then(res => {
         this.text = '';
         this.init();
-        this.$store.dispatch('getTodo');
+        this.$store.dispatch('getTodoItems');
       });
     },
     updateTodo() {
@@ -175,17 +165,12 @@ export default {
       editTodo(
         this.todo
       ).then(data => {
-        // _this.init();
-        _this.$store.dispatch('getTodo');
+        _this.$store.dispatch('getTodoItems');
       });
     },
     updateTitle() {
       this.updateTodo();
       this.isUpdate = false;
-    },
-    onDelete() {
-      this.todo.isDelete = true;
-      this.updateTodo();
     },
     onlock() {
       this.todo.locked = !this.todo.locked;
@@ -208,9 +193,6 @@ export default {
 @import "../common/style/less/todo.less";
 body{
 /*<!--background-color: @main-gray !important;-->*/
-}
-input{
-  font-family: 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', source-han-serif-sc, serif;
 }
 input[checked]{
   opacity: 1 ;
@@ -307,5 +289,20 @@ width: 92% !important;
   }
   .disabled{
     background-color: rgba(144, 144, 144, 0.075) !important;
+  }
+  /*滚动条样式*/
+  .content-scrollable::-webkit-scrollbar {
+    width: 12px;
+    background-color: transparent;
+  }
+  .content-scrollable::-webkit-scrollbar-thumb {
+    border-radius: 10px !important;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #5a5a5a;
+  }
+  .content-scrollable::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px !important;
+    background-color: #F5F5F5;
   }
 </style>

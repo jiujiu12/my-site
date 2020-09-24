@@ -6,8 +6,9 @@ import * as getters from './getters';
 Vue.use(Vuex);
 
 const state = {
-  todoList: [],  // 指我们的待办事项列表数据
-  menuOpen: false // 移动端的时候菜单是否开启
+  todoList: [],
+  menuOpen: false,
+  paramId: 1
 };
 
 const mutations = {
@@ -16,6 +17,9 @@ const mutations = {
   },
   MENUOPEN(state) { // 定义名为 MENUOPEN函数用作改变menuOpen的值
     state.menuOpen = !state.menuOpen;
+  },
+  CHANGEPID(state, data) {
+    state.paramId = data;
   }
 };
 
