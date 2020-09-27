@@ -4,7 +4,7 @@
       <footer id="footer" >
           <div class="flex">
             <div class="copyright">
-              CopyRight&copy;  2020 Sherry.All rights reserved. 冀ICP备2020021452号.
+              CopyRight&copy;&nbsp;2020 Sherry.&nbsp;All rights reserved.&nbsp; 冀ICP备2020021452号.
             </div>
         </div>
       </footer>

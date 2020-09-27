@@ -1,35 +1,54 @@
 <template>
-      <div id="caculate three" class="inner content wrapper">
+      <div id="caculate three">
         <header class="align-center">
-          <h2>在线计算器</h2>
-          <p>实现简单的计算</p>
+          <!--导航条-->
+          <nav id="navbar" class="nav goback">
+            <ul class="nav-list">
+              <li>
+                <a @click="back" class="left back"> >返回</a>
+              </li>
+            </ul>
+          </nav>
+          <!--/导航条-->
         </header>
 
-        <div class="box"><br />
-          <!--输入框-->
-          <div class="cal ">
-            <input type="text" disabled="disabled" name="" id="print" class="print" v-model="show"  /><br /><br />
-            <div class=" flex flex-4">
-              <button
-                class="btn"
-                v-for="(item,index) in values"
-                :key="index"
-                @click="cone(item)"
-              >
-                <a  class="fun">{{item}}</a>&nbsp;
-              </button>
+        <main>
+          <br>
+          <h2 class="cal-title">在线计算器</h2>
+          <p>实现简单的计算</p>
+          <div class="box contain">
+            <br />
+
+            <!--输入框-->
+            <div class="cal ">
+              <input type="text" disabled="disabled" name="" id="print" class="print" v-model="show"  /><br /><br />
+              <div class=" flex flex-4">
+                <button
+                  class="btn"
+                  v-for="(item,index) in values"
+                  :key="index"
+                  @click="cone(item)"
+                >
+                  <a  class="fun">{{item}}</a>&nbsp;
+                </button>
+              </div>
             </div>
+
           </div>
 
-        </div>
+        </main>
+        <my-footer></my-footer>
+
       </div>
 </template>
 
 <script>
     import MyNav from '../common/MyNav';
+    import MyFooter from '../common/MyFooter';
     export default {
         name: 'caculate',
         components: {
+          MyFooter,
             MyNav
         },
         data() {
@@ -45,16 +64,10 @@
                     '*', '1', '2', '3',
                     '/', '0', '00', '.',
                     '%', '=', '(', ')'
-                  ]
+                  ],
+              storage: ''
             };
         },
-      mounted() {
-          if (window.history < 0) {
-            this.hasHistory = false;
-          } else {
-            this.hasHistory = true;
-          }
-      },
         methods: {
           cone(item) {
               switch (item) {
@@ -93,14 +106,20 @@
                   this.disable ? this.show = this.show + item : this.show;
                   break;
               }
-        }
+        },
+          back() {
+            this.storage = window.localStorage;
+            let user = this.storage.getItem('username');
+            user === 'r' ? this.$router.push('/rhome') : this.$router.push('/zhome');
+          }
       }
     };
 </script>
 <style lang="less" scoped>
-  /*计算器边框*/
-  #caculate{
-  }
+.back{
+  float: left;
+  color: #bbb;
+}
   /*结果输出框*/
 
   a{
@@ -112,8 +131,10 @@
   }
   .box{
     height: 500px;
+    width: 100%;
     position: relative;
     .cal{
+      width: 50%;
       padding: 5%;
       background-color: #5a5a5a;
       position: absolute;
@@ -128,6 +149,9 @@
         width: 25%;
       }
     }
+  }
+  .cal-title{
+    margin: 10rem 0 0 0;
   }
 
 </style>

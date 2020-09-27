@@ -4,6 +4,20 @@
 <!--      <button @click="changeLanguage()">切换语言</button>-->
 <!--      <h1 v-model="title"></h1>-->
 <!--      <h3>{{ $t('today') }}</h3>-->
+      <header id="header">
+        <div class="inner">
+            <a  class="logo">FUR</a>
+            <nav id="nav">
+              <router-link :to="{ name: 'rhome'}">主页</router-link>
+              <a href=" http://aaamiao.xyz/about/">博客</a>
+              <router-link :to="{ name : 'resume' }">在线简历</router-link>
+            </nav>
+        </div>
+        <a class="navPanelToggle" @click="getNavPanel('#navPanel')">
+          <span class="fa fa-bars"></span>
+        </a>
+        <nav-panel :is-visible="isVisible"></nav-panel>
+      </header>
       <!-- Banner -->
       <section id="banner">
         <h1>Just to do it!</h1>
@@ -29,16 +43,16 @@
               </header>
               <p>记住时常看看未来几天有什么重要的事，不要错过彼此重要的日子~</p>
               <div>
-                <a href="#" class="button special">去确认</a>
+                <router-link :to="{ name: 'calendar' }" class="button special">去确认</router-link>
               </div>
             </article>
             <article>
               <header>
-                <h3>组件</h3>
+                <h3>计算器</h3>
               </header>
-              <p>公共组件库</p>
+              <p>来计算吧~</p>
               <div>
-                <a href="#" class="button special">去查看</a>
+                <router-link :to="{ name: 'caculate' }" class="button special">去计算</router-link>
               </div>
             </article>
           </div>
@@ -63,9 +77,15 @@
           const vm = window.vm;
            return {
               vm: vm,
-             title: ''
+             title: '',
+             isVisible: false,
+             storage: ''
            };
         },
+      created() {
+          this.storage = window.localStorage;
+          this.storage.setItem('username', 'r');
+      },
       mounted() {
           this.title = i18n.t('welcome');
       },
@@ -73,6 +93,10 @@
         changeLanguage(type) {
           window.localStorage.setItem('locale', type);
           window.location.reload();
+        },
+        getNavPanel(idName) {
+          document.querySelector(idName).scrollIntoView(true);
+          this.isVisible = !this.isVisible;
         }
       }
     };
@@ -80,4 +104,7 @@
 
 <style lang="less" scoped>
   @import '../common/style/css/main.css';
+  article{
+    font-family: 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', source-han-serif-sc, serif;
+  }
 </style>

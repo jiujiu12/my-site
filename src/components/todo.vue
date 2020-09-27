@@ -6,7 +6,7 @@
           <nav id="navbar" class="nav goback">
             <ul class="nav-list">
               <li>
-                <router-link :to="{ name : 'home' }" class="left back"> >返回</router-link>
+                <a @click="back" class="left back"> >返回</a>
               </li>
             </ul>
           </nav>
@@ -36,15 +36,8 @@
              </div>
 
           </div>
-          <!--页脚-->
-          <footer >
-             <span>&copy; Created by
-              <a href="http://aaamiao.xyz" target="_blank"
-              >Miaomiao </a> 冀ICP备2020021452号
-            </span>
-              <a>了解更多>></a>
-          </footer>
-          <!--/页脚-->
+
+          <my-footer></my-footer>
         </div>
       </div>
 </template>
@@ -53,6 +46,7 @@
 import menus from './menus';
 import todo from './operate';
 import MyNav from './common/MyNav';
+import MyFooter from './common/MyFooter';
 export default {
   name: 'todo',
   data() {
@@ -68,6 +62,7 @@ export default {
     };
   },
   components: {
+    MyFooter,
     menus,
     todo,
     MyNav
@@ -93,6 +88,11 @@ export default {
     },
     onTodo(todo) {
       this.todo = todo;
+    },
+    back() {
+      this.storage = window.localStorage;
+      let user = this.storage.getItem('username');
+      user === 'r' ? this.$router.push('/rhome') : this.$router.push('/zhome');
     }
   }
 };

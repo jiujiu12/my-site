@@ -1,12 +1,12 @@
 <template>
     <div id="layout"  :class="{subpage:isSubpage}">
       <!-- Header -->
-      <my-nav
-        :has-history="hasHistory"
-        :is-subpage="isSubpage"
-        :is-visible="isVisible"
-        @back="goBack"
-      > </my-nav>
+<!--      <my-nav-->
+<!--        :has-history="hasHistory"-->
+<!--        :is-subpage="isSubpage"-->
+<!--        :is-visible="isVisible"-->
+<!--        @back="goBack"-->
+<!--      > </my-nav>-->
 
       <!--内容-->
       <router-view></router-view>
@@ -35,7 +35,7 @@
           };
         },
         created() {
-          if (this.$route.path === '/') {
+          if (this.$route.path === '/home') {
             this.isSubpage = false;
             // this.hasHistory = false;
           } else {
@@ -46,7 +46,7 @@
         watch: {
           '$route.path' () {
             this.isVisible = false;
-            if (this.$route.path === '/') {
+            if (this.$route.path === '/home') {
               this.isSubpage = false;
               // this.hasHistory = false;
             } else {
@@ -59,7 +59,7 @@
         },
       methods: {
           goBack(has) {
-            has ? this.$router.go(-1) : this.$router.push('/');
+            has ? this.$router.go(-1) : this.$router.push('/home');
           }
       }
     };

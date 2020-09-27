@@ -6,7 +6,10 @@ import layout from '../components/layout';
 import UserHome from '@/pages/UserHome';
 import resume from '../components/resume/resume';
 import fullPage from '../components/resume/fullPage';
-import login from '../components/login';
+// import login from '../components/login';
+import caculate from '../components/resume/caculate';
+import ZHome from '../pages/ZHome';
+import calendar from '../components/resume/calendar';
 
 Vue.use(Router);
 
@@ -18,9 +21,14 @@ export default new Router({
       component: layout,
       children: [
         {
-          path: '',
-          name: 'home',
+          path: '/rhome',
+          name: 'rhome',
           component: UserHome
+        },
+        {
+          path: '/zhome',
+          name: 'zhome',
+          component: ZHome
         },
         {
           path: '/page',
@@ -46,9 +54,14 @@ export default new Router({
       ]
     },
     {
-      path: '/login',
-      name: 'login',
-      component: login
+      path: '/caculate',
+      name: 'caculate',
+      component: caculate
+    },
+    {
+      path: '/calendar',
+      name: 'calendar',
+      component: calendar
     }
   ]
 });

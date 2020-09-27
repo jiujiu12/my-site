@@ -2727,13 +2727,11 @@
 /* Header */
 
 	.subpage {
-		padding-top: 44px;
     background: #eaecf0;
 	}
 
 		.subpage #header {
-			background: var(--main-red);
-			top: 0;
+			top: 8rem;
 			height: 44px;
 			line-height: 44px;
 			position: fixed;

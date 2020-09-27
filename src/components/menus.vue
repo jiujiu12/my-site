@@ -1,6 +1,15 @@
 <template>
   <div class="list-todos">
     <!-- 循环展示所有代办清单-->
+
+      <div class="nav-group" @click="$store.dispatch('updateMenu')" v-show="!isUpdate">
+        <!-- 在菜单的图标下面添加updateMenu时间，他可以直接调用vuex actions.js里面的updateMenu方法 -->
+        <a class="nav-item">
+            <span class="icon-close" style="color: black">
+            </span>
+        </a>
+      </div>
+
       <div class="btns-group-vertical">
       <a
         v-for="(item,index) in todoList"
