@@ -10,7 +10,8 @@ import axios from 'axios';
 
 Vue.use(ElementUI);
 
-axios.defaults.baseURL = 'http://localhost:8080';
+// axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = 'http://ayanya.top';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 Vue.config.productionTip = false;
